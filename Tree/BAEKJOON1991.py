@@ -12,23 +12,23 @@ for n in range(N):
  
 def preorder(v):
     if v != '.':
-        print(v, end='')  # root
-        preorder(tree[v][0])  # left
-        preorder(tree[v][1])  # right
+        print(v, end='')  
+        preorder(tree[v][0]) 
+        preorder(tree[v][1])  
  
  
 def inorder(v):
     if v != '.':
-        inorder(tree[v][0])  # left
-        print(v, end='')  # root
-        inorder(tree[v][1])  # right
+        inorder(tree[v][0])  
+        print(v, end='')  
+        inorder(tree[v][1])  
  
  
 def postorder(v):
     if v != '.':
-        postorder(tree[v][0])  # left
-        postorder(tree[v][1])  # right
-        print(v, end='')  # root
+        postorder(tree[v][0])  
+        postorder(tree[v][1])  
+        print(v, end='')  
  
 #항상 A가 루트 노드
 preorder('A')
