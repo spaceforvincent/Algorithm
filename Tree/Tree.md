@@ -76,20 +76,22 @@
 
     - ```python
       def inorder_traverse(T) : 
-      	inorder_traverse(T.left) #현재 노드 왼쪽 서브트리로 이동
-      	visit(T) #현재 노드 방문 처리
-          inorder_traverse(T.right) #현재 노드 오른쪽 서브트리로 이동
+          if T : 
+      		inorder_traverse(T.left) #현재 노드 왼쪽 서브트리로 이동
+      		visit(T) #현재 노드 방문 처리
+          	inorder_traverse(T.right) #현재 노드 오른쪽 서브트리로 이동
       ```
 
   - 후위 순회 : 루트를 마지막에 방문
 
     - ```python
-      def postorder_traverse(T) : 
-      	postorder_traverse(T.left) #현재 노드 왼쪽 서브트리로 이동
-          postorder_traverse(T.right) #현재 노드 오른쪽 서브트리로 이동
-          visit(T) #현재 노드 방문 처리
+      def postorder_traverse(T) :
+          if T :
+      		postorder_traverse(T.left) #현재 노드 왼쪽 서브트리로 이동
+          	postorder_traverse(T.right) #현재 노드 오른쪽 서브트리로 이동
+          	visit(T) #현재 노드 방문 처리
       ```
-
+      
       
 
 - 배열을 이용한 이진 트리의 표현
