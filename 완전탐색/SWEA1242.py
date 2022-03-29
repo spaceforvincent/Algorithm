@@ -33,7 +33,6 @@ for tc in range(1,T+1):
     result = 0
     for i in range(N):
         idx = 4*M - 1   # 입력받은 16진수를 4비트 바이너리로 바꿨으니 길이가 4배 늘어남
-        # 55번 인덱스 까지만 확인하면 됩니다. , 만약에 55번이 암호코드 시작이 아니면, 암호코드는 올수 없음
         while idx >= 55:
             if arr[i][idx] == '1' and arr[i-1][idx] == '0':   #패턴 시작
                 password = []
