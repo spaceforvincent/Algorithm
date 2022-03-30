@@ -42,7 +42,7 @@ def dfs(i,j,total):
     if total > ans: #가지치기
         return
     
-    if i == N-1 and j == N-1:
+    if i == N-1 and j == N-1: 
         if total < ans: #현재 정답보다 작은 값이라면
             ans = total # new 정답
 
