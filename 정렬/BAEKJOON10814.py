@@ -2,17 +2,16 @@
 
 import sys
 
-def bubble_sort(lst):
-    for i in range(len(lst) - 1, 0, -1):
-        for j in range(i):
-            if int(lst[j][0]) > int(lst[j + 1][0]):
-                lst[j], lst[j + 1] = lst[j + 1], lst[j]
-    return lst
 N = int(sys.stdin.readline())
 
 lst = []
 for i in range(N):
-    age_and_name = tuple(sys.stdin.readline().split())
+    age_and_name = sys.stdin.readline().split()
     lst.append(age_and_name)
 
-for i in range(len(lst))
+lst = list(enumerate(lst))
+
+lst.sort(key = lambda x : (int(x[1][0]),x[0]))
+
+for i in lst:
+    print(f'{i[1][0]} {i[1][1]}')

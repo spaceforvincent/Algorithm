@@ -1,7 +1,6 @@
 #베이비진 게임
 
 def check():
-    global player1, player2
     for i in range(len(arr)):
         if i % 2 == 0: #player1
             player1.append(arr[i])
