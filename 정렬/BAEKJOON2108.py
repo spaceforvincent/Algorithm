@@ -30,7 +30,7 @@ for i in range(len(lst)):
         if cnt == 2: 
             ans = lst[i]
 
-print(int(round(sum(lst) / len(lst),1))) #산술평균
+print(int((sum(lst) / N)+0.5)) #산술평균
 print(lst[len(lst)//2]) #중앙값
 print(ans) #최빈값
 print(max(lst) - min(lst))#범위
