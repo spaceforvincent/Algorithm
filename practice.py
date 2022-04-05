@@ -1,26 +1,34 @@
-#요리사
-def dfs(n, alst, blst):
-    global ans
+# def run(n):
+#     if n == 5:
+#         return
+#     print(n)
+#     run(n-1)
+#     print(n)
 
-    if n == N:
-        if len(alst) == len(blst):
-            asum = bsum = 0
-            for i in range(len(alst)):
-                for j in range(len(alst)):
-                    asum += arr[alst[i]][alst[j]]
-                    bsum += arr[blst[i]][blst[j]]
-            if ans > abs(asum - bsum):
-                ans = abs(asum - bsum)
-        return
+# run(10)
 
-    dfs(n+1, alst+[n], blst) #alst에 선택되는 경우
-    dfs(n+1, alst, blst+[n]) #blst에 선택되는 경우
+from collections import deque
 
-T = int(input())
-for tc in range(1,T+1):
-    N = int(input())
-    arr = [list(map(int, input().split())) for i in range(N)]
-    
-    ans = 987654321
-    dfs(0, [], [])
-    print(f'#{tc} {ans}')    
+di = [-1,1,0,0]
+dj = [0,0,-1,1]
+
+def bfs():
+    Q = deque()
+    for i in range(len(arr)):
+        for j in range(len(arr[i])):
+            if arr[i][j] == 1:
+                Q.append((i,j))
+    while Q:
+        i,j = Q.popleft()
+        for k in range(4):
+            ni = i + di[k]
+            nj = j + dj[k]
+            if 0<=ni<4 and 0<=nj<4 and arr[ni][nj] == 0:
+                arr[ni][nj] = arr[i][j] + 1
+                Q.append((ni,nj))
+
+arr = [[0] * 4 for i in range(4)]
+arr[1][1] = 1
+
+bfs()
+print(arr)

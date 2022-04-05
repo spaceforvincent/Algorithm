@@ -15,10 +15,10 @@ def busstop(n):
         if ans > cnt:
             ans = cnt
     else:
-        for i in range(n + arr[n], n,-1):
-            cnt += 1
+        for i in range(n + arr[n], n, -1):
+            cnt += 1 #충전을 하는 경우
             busstop(i)
-            cnt -= 1
+            cnt -= 1 #충전을 하지 않는 경우
 
 T = int(input())
 for tc in range(1,T+1):
