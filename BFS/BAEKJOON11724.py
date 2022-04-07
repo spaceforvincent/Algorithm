@@ -1,3 +1,5 @@
+#연결 요소의 개수
+
 from collections import deque
 import sys
 

@@ -83,3 +83,42 @@ for tc in range(1,T+1):
     for i in range(1,N+1):
         if not graph[i]:
             print(f'#{tc} {distance[i]}')
+
+
+#3. 개선된 다익스트라(힙큐 사용)
+
+def dijkstra(s):
+    Q = []
+    heapq.heappush(Q,(0,s))
+    distance[s] = 0
+    while Q:
+        dist, now = heapq.heappop(Q)
+        if distance[now] < dist:
+            continue
+        for i in graph[now]:
+            cost = dist + i[1]
+            if cost < distance[i[0]]:
+                distance [i[0]] = cost
+                heapq.heappush(Q, (cost,i[0]))
+
+import heapq
+
+T = int(input())
+for tc in range(1,T+1):
+    N, E = map(int, input().split()) #마지막 연결지점 번호, 간선 개수
+    #각 노드에 연결되어 있는 노드에 대한 정보 담는 리스트 만들기
+    graph = [[] for i in range(N+1)]
+    #최단거리 테이블을 모두 무한으로 초기화
+    distance = [987654321] * (N+1)
+    #간선정보 입력받기
+    line = []
+    for i in range(E):
+        s, e, w = list(map(int, input().split()))
+        graph[s].append((e,w))
+
+
+    dijkstra(0)
+
+    for i in range(1,N+1):
+        if not graph[i]:
+            print(f'#{tc} {distance[i]}')
