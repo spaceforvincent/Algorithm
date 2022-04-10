@@ -7,10 +7,10 @@ dj = [0,0,-1,1]
 
 def bfs(i,j):
     Q = deque()
-    s = []
+    s = [] #경로 시작 번호, 경로 길이 체크용
     Q.append([i,j])
     visited[i][j] = 1
-    s.append(arr[i][j])
+    s.append(arr[i][j]) 
     
     while Q:
         p = Q.pop()
@@ -22,7 +22,7 @@ def bfs(i,j):
                 visited[ni][nj] = 1
                 s.append(arr[ni][nj])
     
-    return min(s), len(s)
+    return min(s), len(s) #경로 시작 번호, 경로 길이
 
 T = int(input())
 for tc in range(1,T+1):
@@ -34,8 +34,8 @@ for tc in range(1,T+1):
     for i in range(N):
         for j in range(N):
             if visited[i][j] == 0:
-                m, l = bfs(i,j)
-                if cnt < l or cnt == l  and m < num:
+                m, l = bfs(i,j) #m : 경로 가장 길게 나오는 번호 중 가장 작은 번호, l : 경로 길이
+                if cnt < l or cnt == l  and m < num: #정답 갱신(현재 정답보다 bfs 후 경로 길이가 길거나, 경로 길이 같을 때 경로 시작 번호가 더 작다면)
                     cnt = l
                     num = m
     print(f'#{tc} {num} {cnt}')
