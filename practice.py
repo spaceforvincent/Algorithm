@@ -1,66 +1,10 @@
-import sys
-sys.setrecursionlimit(1000000)
+array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2]
+#모든 범위를 포함하는 리스트 선언
+cnt = [0] * (max(array) + 1)
 
-def dfs(v):
-    global ans
-    visited[v] = 1
-
-    for w in range(1,V+1):
-        if adj[v][w] == 1 and visited[w] == 0:
-            dfs(w)
-            
-
-V,E = map(int, sys.stdin.readline().split())
-
-
-adj = [[0] * (V+1) for i in range(V+1)]
-for i in range(E):
-    s, e = map(int, sys.stdin.readline().split())
-    adj[s][e] = adj[e][s]= 1
-
-visited = [0] * (V+1)
-
-cnt = 0
-for i in range(1,V+1):
-    if not visited[i]:
-       dfs(i)
-       cnt += 1
-
-print(cnt)
-
-# from collections import deque
-# import sys
-
-# def bfs(v):
-#     global ans
-#     Q = deque()
-#     Q.append(v)
-#     visited[v] = 1
-
-#     while Q:
-#         v = Q.popleft()
-        
-#         for w in range(1,V+1):
-#             if adj[v][w] == 1 and visited[w] == 0:
-#                 Q.append(w)
-#                 visited[w] = 1
-    
-
-# V,E = map(int, sys.stdin.readline().split())
-
-
-# adj = [[0] * (V+1) for i in range(V+1)]
-# for i in range(E):
-#     s, e = map(int, sys.stdin.readline().split())
-#     adj[s][e] = adj[e][s] = 1
-
-# visited = [0] * (V+1)
-
-# cnt = 0
-# for i in range(1,V+1):
-#     if not visited[i]:
-#         bfs(i)
-#         cnt += 1
-
-# print(cnt)
-
+for i in range(len(array)):
+	cnt[array[i]] += 1 # 각 데이터에 해당하는 인덱스의 값 증가
+  
+for i in range(len(cnt)):
+    for j in range(cnt[i]):
+        print(i, end = ' ')
