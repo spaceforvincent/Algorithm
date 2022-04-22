@@ -1,10 +1,12 @@
-array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2]
-#모든 범위를 포함하는 리스트 선언
-cnt = [0] * (max(array) + 1)
+import sys
+N = int(sys.stdin.readline())
 
-for i in range(len(array)):
-	cnt[array[i]] += 1 # 각 데이터에 해당하는 인덱스의 값 증가
-  
-for i in range(len(cnt)):
-    for j in range(cnt[i]):
-        print(i, end = ' ')
+cnt = 0
+while cnt != 2*N:
+    for i in range(N):
+        print(' ' * (N - (i+1)) + '*' * (2*i+1))
+        cnt += 1
+    if cnt == N:
+        for i in range(N):
+            print(' ' * (i+1) + '*' * (2*N - (2*i+3)))
+            cnt += 1
