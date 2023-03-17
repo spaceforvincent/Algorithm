@@ -1,6 +1,4 @@
 #View
-#와... 엄청 옛날 문제라고는 하지만 'D3' 붙어있는 문제 직접 푸니까 기분 너무 좋다...
-#그것도 내장함수 안쓰고... 자신감을 얻었다! 곧 다시 잃겠지만!
 
 import sys
 sys.stdin = open('building_input.txt')
